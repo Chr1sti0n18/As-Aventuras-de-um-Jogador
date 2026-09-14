@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b7tvjc3w8f4rp"]
 
-[ext_resource type="Texture2D" uid="uid://dds2dkhwnjbbb" path="res://icon.svg" id="1_cifom"]
-[ext_resource type="PackedScene" uid="uid://dko04rw3aw0qo" path="res://cena_jogador.tscn" id="2_5fdea"]
+[ext_resource type="Texture2D" uid="uid://dds2dkhwnjbbb" path="res://Sprites/icon.svg" id="1_l4nih"]
+[ext_resource type="PackedScene" uid="uid://dko04rw3aw0qo" path="res://Personagem/cena_jogador.tscn" id="2_37tdn"]
+[ext_resource type="PackedScene" uid="uid://drl5roxqw8obn" path="res://Misc/Buffs.tscn" id="3_7hyak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3r67k"]
 size = Vector2(1174.5, 61)
@@ -15,11 +16,15 @@ position = Vector2(583, 608)
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=855965258]
 position = Vector2(0.9999695, 2)
 scale = Vector2(9.09375, 0.5078125)
-texture = ExtResource("1_cifom")
+texture = ExtResource("1_l4nih")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=946560048]
 position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_3r67k")
 
-[node name="Jogador" parent="." unique_id=297150345 instance=ExtResource("2_5fdea")]
-position = Vector2(449, 488)
+[node name="Jogador" parent="." unique_id=297150345 instance=ExtResource("2_37tdn")]
+position = Vector2(283, 538)
+
+[node name="Node2D" parent="." unique_id=1334803964 instance=ExtResource("3_7hyak")]
+position = Vector2(787, 543)
+type = "heal"

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://drl5roxqw8obn"]
+
+[ext_resource type="Script" uid="uid://cy8oqdjmagjam" path="res://Misc/buffs.gd" id="1_kg07w"]
+[ext_resource type="Texture2D" uid="uid://dds2dkhwnjbbb" path="res://Sprites/icon.svg" id="2_kg07w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg07w"]
+size = Vector2(63, 58)
+
+[node name="Area2D" type="Area2D" unique_id=1757849589]
+position = Vector2(46, 21)
+script = ExtResource("1_kg07w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=656155394]
+unique_name_in_owner = true
+scale = Vector2(0.4921875, 0.4453125)
+texture = ExtResource("2_kg07w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1267963106]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kg07w")

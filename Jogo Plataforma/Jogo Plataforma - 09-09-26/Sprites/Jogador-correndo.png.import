@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkinislhctcij"
-path="res://.godot/imported/Jogador.png-9ede1cfe197583e3e1c277acc979d81b.ctex"
+uid="uid://duj7nl3ldw3c6"
+path="res://.godot/imported/Jogador-correndo.png-125e5de801c0bc5068face9fd96e6035.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Jogador.png"
-dest_files=["res://.godot/imported/Jogador.png-9ede1cfe197583e3e1c277acc979d81b.ctex"]
+source_file="res://Sprites/Jogador-correndo.png"
+dest_files=["res://.godot/imported/Jogador-correndo.png-125e5de801c0bc5068face9fd96e6035.ctex"]
 
 [params]
 

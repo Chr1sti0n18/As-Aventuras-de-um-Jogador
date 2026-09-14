@@ -14,7 +14,11 @@ config/name="As aventura de um jogador"
 run/main_scene="uid://b7tvjc3w8f4rp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
+
+[autoload]
+
+Global="*uid://2ysev5cryq4c"
 
 [debug]
 
