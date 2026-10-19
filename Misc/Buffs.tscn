@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drl5roxqw8obn"]
 
 [ext_resource type="Script" uid="uid://cy8oqdjmagjam" path="res://Misc/buffs.gd" id="1_kg07w"]
-[ext_resource type="Texture2D" uid="uid://dds2dkhwnjbbb" path="res://Sprites/icon.svg" id="2_kg07w"]
+[ext_resource type="Texture2D" uid="uid://dds2dkhwnjbbb" path="res://Personagem/jogador/sprite/icon.svg" id="2_kg07w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg07w"]
 size = Vector2(63, 58)

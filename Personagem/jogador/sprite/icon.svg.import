@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkinislhctcij"
-path="res://.godot/imported/Jogador.png-71088160e56cb1e19947d049046c43d6.ctex"
+uid="uid://dds2dkhwnjbbb"
+path="res://.godot/imported/icon.svg-6c5e218999d388d4b6bc7bb0c1906148.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Jogador.png"
-dest_files=["res://.godot/imported/Jogador.png-71088160e56cb1e19947d049046c43d6.ctex"]
+source_file="res://Personagem/jogador/sprite/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-6c5e218999d388d4b6bc7bb0c1906148.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

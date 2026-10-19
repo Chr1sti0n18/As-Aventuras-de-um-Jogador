@@ -7,7 +7,6 @@ var forcao_pulo      = 250
 
 func _process(delta: float) -> void:
 	velocity.y += gravidade
-	#print(str($RayCast2D.get_collider().name))
 	var personagem = get_tree().root.get_node("Fase/Jogador/Personagem")	
 	var personagem_pos_x = personagem.global_position.x
 	

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dko04rw3aw0qo"]
 
 [ext_resource type="Script" uid="uid://cy0iixbud3gru" path="res://Personagem/jogador/script_personagem.gd" id="1_xgtec"]
-[ext_resource type="Texture2D" uid="uid://bkinislhctcij" path="res://Sprites/Jogador.png" id="2_xgtec"]
+[ext_resource type="Texture2D" uid="uid://bkinislhctcij" path="res://Personagem/jogador/sprite/Jogador.png" id="2_wodg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64uw6"]
 size = Vector2(43, 65)
@@ -156,7 +156,7 @@ script = ExtResource("1_xgtec")
 [node name="Sprite2D" type="Sprite2D" parent="Personagem" unique_id=1837001489]
 position = Vector2(2.6249886, -6.375002)
 scale = Vector2(0.5611116, 0.46052635)
-texture = ExtResource("2_xgtec")
+texture = ExtResource("2_wodg1")
 region_enabled = true
 region_rect = Rect2(335, 71, 54, 115)
 
@@ -171,7 +171,7 @@ shape = SubResource("RectangleShape2D_carrinho")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="Personagem" unique_id=273569552]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Marker2D" type="Marker2D" parent="Personagem" unique_id=312183149]
 position = Vector2(77, 11)

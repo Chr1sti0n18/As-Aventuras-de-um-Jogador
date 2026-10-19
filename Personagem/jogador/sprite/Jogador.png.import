@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bglnuovh8jvvb"
-path="res://.godot/imported/Bola.png-fd6856d3f773dab2735722968b8b22dc.ctex"
+uid="uid://bkinislhctcij"
+path="res://.godot/imported/Jogador.png-205b5757f60c587742d9b1dc544ca9ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bola.png"
-dest_files=["res://.godot/imported/Bola.png-fd6856d3f773dab2735722968b8b22dc.ctex"]
+source_file="res://Personagem/jogador/sprite/Jogador.png"
+dest_files=["res://.godot/imported/Jogador.png-205b5757f60c587742d9b1dc544ca9ce.ctex"]
 
 [params]
 
