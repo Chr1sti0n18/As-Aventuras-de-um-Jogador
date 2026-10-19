@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dko04rw3aw0qo"]
 
-[ext_resource type="Script" uid="uid://cy0iixbud3gru" path="res://Personagem/script_personagem.gd" id="1_xgtec"]
+[ext_resource type="Script" uid="uid://cy0iixbud3gru" path="res://Personagem/jogador/script_personagem.gd" id="1_xgtec"]
 [ext_resource type="Texture2D" uid="uid://bkinislhctcij" path="res://Sprites/Jogador.png" id="2_xgtec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64uw6"]
@@ -103,7 +103,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_63raq"]
 resource_name = "parado"
-length = 0.19999999999999998
+length = 0.2
 loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
@@ -150,6 +150,7 @@ position = Vector2(563, 329)
 
 [node name="Personagem" type="CharacterBody2D" parent="." unique_id=1443315958]
 position = Vector2(0, -1)
+collision_layer = 3
 script = ExtResource("1_xgtec")
 
 [node name="Sprite2D" type="Sprite2D" parent="Personagem" unique_id=1837001489]
@@ -160,6 +161,7 @@ region_enabled = true
 region_rect = Rect2(335, 71, 54, 115)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Personagem" unique_id=352200697]
+visibility_layer = 2
 position = Vector2(4, -7)
 shape = SubResource("RectangleShape2D_64uw6")
 

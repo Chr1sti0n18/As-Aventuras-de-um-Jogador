@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dewhmb7o3v5ih"]
+
+[ext_resource type="Texture2D" uid="uid://c5eipvhseow1a" path="res://GameOver.jpg" id="1_s1hed"]
+
+[node name="GameOver" type="Node2D" unique_id=240354240]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1652592420]
+position = Vector2(573.5, 322.99997)
+scale = Vector2(0.84275365, 0.8723404)
+texture = ExtResource("1_s1hed")

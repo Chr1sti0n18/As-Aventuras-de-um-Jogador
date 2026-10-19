@@ -2,16 +2,21 @@ extends CharacterBody2D
 
 var velocidade  = 500
 var gravidade   = 30
-var forca_pulo  = 650
+var forca_pulo  = 800
 var direcao     = 1 # 1 para direita, -1 para esquerda
 var animando    = false
-var agachado    = false
 
-
+func _ready() -> void:
+	Global.personagem = self
+	
+	
 func _process(delta: float) -> void:
+	
+	if (Global.qtd_vidas<=0):
+		get_tree().change_scene_to_file("res://Cenario/gameover/cena_game_over.tscn")
+	
 	velocity.x = 0
 	velocity.y += gravidade
-	
 	
 	if (Input.is_action_pressed("ir_para_esquerda")):
 		velocity.x = -velocidade
@@ -31,7 +36,6 @@ func _process(delta: float) -> void:
 	if (is_on_floor()):
 		if ($AnimationPlayer.current_animation==""):
 			animando = false
-			set_agachado(false)
 			
 		if (not animando):
 			if (velocity.x == 0):
@@ -46,22 +50,14 @@ func _process(delta: float) -> void:
 		if (Input.is_action_pressed("carrinho")):
 			$AnimationPlayer.play("carrinho")
 			animando = true
-			set_agachado(true)
 			
 	else:
 		$AnimationPlayer.play("pulando")
-	
-	move_and_slide()
 
-func set_agachado(valor: bool) -> void:
-	if valor == agachado:
-		return
-	agachado = valor
-	$CollisionShape2D.disabled = valor
-	$ColisaoCarrinho.disabled = not valor
+	move_and_slide()
 	
 func spawnar_bolar():
-	var cena_bola = preload("res://Personagem/cena_bola.tscn")
+	var cena_bola = preload("res://Personagem/jogador/cena_bola.tscn")
 	var obj_bola  = cena_bola.instantiate()
 	obj_bola.get_node("CharacterBody2D").direcao = direcao
 	get_parent().add_child(obj_bola)

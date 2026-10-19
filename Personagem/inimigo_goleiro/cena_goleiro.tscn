@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://ba3i6ir4tmqf1"]
+
+[ext_resource type="Script" uid="uid://dme1o2vouxuf5" path="res://Personagem/inimigo_goleiro/script/goleiro.gd" id="1_sld13"]
+[ext_resource type="Texture2D" uid="uid://cewfca3ysymko" path="res://Personagem/inimigo_goleiro/sprite/Inimigo2.png" id="1_wb0th"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gt3kb"]
+size = Vector2(49, 124)
+
+[sub_resource type="Animation" id="Animation_jpbw4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(266, 86, 226, 251)]
+}
+
+[sub_resource type="Animation" id="Animation_wb0th"]
+resource_name = "atacando"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(70, 481, 342, 263), Rect2(485, 441, 301, 286), Rect2(907, 439, 347, 271)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sld13"]
+resource_name = "correndo"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(41, 82, 203, 261), Rect2(266, 86, 226, 251), Rect2(512, 85, 172, 249), Rect2(696, 77, 214, 256), Rect2(1152, 79, 148, 256)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_sw742"]
+resource_name = "parado"
+length = 2.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(55, 848, 179, 257), Rect2(322, 844, 164, 261), Rect2(575, 841, 171, 264), Rect2(840, 841, 173, 264), Rect2(1099, 844, 172, 261), Rect2(1357, 846, 181, 256), Rect2(54, 1142, 177, 253), Rect2(319, 1134, 175, 261), Rect2(558, 1128, 174, 262), Rect2(811, 1129, 187, 257), Rect2(1071, 1134, 188, 253)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpbw4"]
+_data = {
+&"RESET": SubResource("Animation_jpbw4"),
+&"atacando": SubResource("Animation_wb0th"),
+&"correndo": SubResource("Animation_sld13"),
+&"parado": SubResource("Animation_sw742")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r67k"]
+size = Vector2(121, 24)
+
+[node name="Inimigo2" type="Node2D" unique_id=879218546]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1525321210]
+position = Vector2(0, 1)
+collision_layer = 4
+script = ExtResource("1_sld13")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1017881434]
+scale = Vector2(0.4926108, 0.49261096)
+texture = ExtResource("1_wb0th")
+region_enabled = true
+region_rect = Rect2(266, 86, 226, 251)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=646099643]
+position = Vector2(-2.5, -1)
+shape = SubResource("RectangleShape2D_gt3kb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1610695618]
+libraries/ = SubResource("AnimationLibrary_jpbw4")
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=1578305454]
+position = Vector2(-150, -2)
+scale = Vector2(5.392893, 4.6762314)
+target_position = Vector2(58.41021, 0)
+collision_mask = 2
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=851623594]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=689291340]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_3r67k")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CharacterBody2D" unique_id=213531596]
+position = Vector2(48, 42)
+rect = Rect2(-10, -17, 15, 36)
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="causar_dano_personagem"]
+[connection signal="screen_entered" from="CharacterBody2D/VisibleOnScreenNotifier2D" to="CharacterBody2D" method="perseguir"]
+[connection signal="screen_exited" from="CharacterBody2D/VisibleOnScreenNotifier2D" to="CharacterBody2D" method="encerrar_perseguicao"]

@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://b7tvjc3w8f4rp"]
 
-[ext_resource type="Texture2D" uid="uid://dds2dkhwnjbbb" path="res://Sprites/icon.svg" id="1_l4nih"]
-[ext_resource type="PackedScene" uid="uid://dko04rw3aw0qo" path="res://Personagem/cena_jogador.tscn" id="2_37tdn"]
-[ext_resource type="PackedScene" uid="uid://drl5roxqw8obn" path="res://Misc/Buffs.tscn" id="3_7hyak"]
+[ext_resource type="Texture2D" uid="uid://bq7hhd1owfrfv" path="res://Cenario/sprite/cenário.jpg" id="1_7hyak"]
+[ext_resource type="PackedScene" uid="uid://dko04rw3aw0qo" path="res://Personagem/jogador/cena_jogador.tscn" id="2_5fdea"]
+[ext_resource type="PackedScene" uid="uid://bf1en1f5dx4v5" path="res://Cenario/props/cena_nuvem.tscn" id="3_37tdn"]
+[ext_resource type="PackedScene" uid="uid://ba3i6ir4tmqf1" path="res://Personagem/inimigo_goleiro/cena_goleiro.tscn" id="4_2r50s"]
+[ext_resource type="PackedScene" uid="uid://cx4kdoraxx42g" path="res://Cenario/hud/cena_hud.tscn" id="4_7hyak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64uw6"]
+size = Vector2(43, 655)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3r67k"]
-size = Vector2(1174.5, 61)
+size = Vector2(285, 138)
 
 [node name="Fase" type="Node2D" unique_id=934340607]
 position = Vector2(0, 6)
@@ -14,17 +19,38 @@ position = Vector2(0, 6)
 position = Vector2(583, 608)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=855965258]
-position = Vector2(0.9999695, 2)
-scale = Vector2(9.09375, 0.5078125)
-texture = ExtResource("1_l4nih")
+position = Vector2(936, -202.99998)
+scale = Vector2(1.0388749, 1.3977274)
+texture = ExtResource("1_7hyak")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=946560048]
-position = Vector2(-2, -2)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1116216062]
+polygon = PackedVector2Array(-587, -1, 1037, -1, 1037, -96, 1056, -97, 1055, -148, 1095, -148, 1095, -200, 1136, -200, 1136, -148, 1176, -147, 1174, -103, 1190, -101, 1190, -50, 1527, -49, 1564, -3, 2457, 1, 2457, 45, -585, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1229518243]
+position = Vector2(-603, -286.5)
+shape = SubResource("RectangleShape2D_64uw6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=24231904]
+position = Vector2(2477, -282)
+shape = SubResource("RectangleShape2D_64uw6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=730386540]
+position = Vector2(1927.5, -72)
 shape = SubResource("RectangleShape2D_3r67k")
+one_way_collision = true
 
-[node name="Jogador" parent="." unique_id=297150345 instance=ExtResource("2_37tdn")]
-position = Vector2(283, 538)
+[node name="Jogador" parent="." unique_id=297150345 instance=ExtResource("2_5fdea")]
+position = Vector2(138, 553)
 
-[node name="Node2D" parent="." unique_id=1334803964 instance=ExtResource("3_7hyak")]
-position = Vector2(787, 543)
-type = "heal"
+[node name="Goleiro" parent="." unique_id=879218546 instance=ExtResource("4_2r50s")]
+position = Vector2(846, 547)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=429357353]
+layer = 1
+
+[node name="Nuvem" parent="ParallaxBackground" unique_id=365300541 instance=ExtResource("3_37tdn")]
+position = Vector2(0, 6)
+
+[node name="HUD" parent="ParallaxBackground" unique_id=1480817942 instance=ExtResource("4_7hyak")]
+position = Vector2(41, 41)
+script = null
