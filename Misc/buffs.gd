@@ -2,8 +2,8 @@ extends Area2D
 
 @export var type : String
 
-const SPRITE_CURA = preload("res://Sprites/icon.svg")
-const SPRITE_BUFF = preload("res://Sprites/icon.svg")
+const SPRITE_CURA = preload("res://Personagem/jogador/sprite/icon.svg")
+const SPRITE_BUFF = preload("res://Personagem/jogador/sprite/icon.svg")
 
 func _ready() -> void:
 	set_data()

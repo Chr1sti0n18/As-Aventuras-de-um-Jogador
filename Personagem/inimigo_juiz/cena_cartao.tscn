@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dld80glc3vc21"]
 
-[ext_resource type="Texture2D" uid="uid://ca0mbttpobcrt" path="res://inimigo1b.png" id="1_ks231"]
-[ext_resource type="Script" uid="uid://ll5gm8i2wjll" path="res://script_cartao.gd" id="1_olowh"]
+[ext_resource type="Script" uid="uid://dpw57g1xca4j3" path="res://Personagem/inimigo_juiz/script/script_cartao.gd" id="1_olowh"]
+[ext_resource type="Texture2D" uid="uid://dkx6vdhurwq6q" path="res://Personagem/inimigo_juiz/sprite/Juiz.png" id="2_iy5eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bnfh"]
 size = Vector2(27, 33)
@@ -33,31 +33,57 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Rect2(74, 665, 46, 56), Rect2(722, 666, 57, 54), Rect2(828, 667, 50, 52)]
+"values": [Rect2(122, 775, 98, 53), Rect2(329, 764, 172, 72)]
 }
+
+[sub_resource type="Animation" id="Animation_vermelho"]
+resource_name = "vermelho"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(615, 775, 150, 56), Rect2(872, 760, 182, 76)]
+}
+
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpwsh"]
 _data = {
 &"RESET": SubResource("Animation_ks231"),
-&"movendo": SubResource("Animation_olowh")
+&"movendo": SubResource("Animation_olowh"),
+&"vermelho": SubResource("Animation_vermelho")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehpj2"]
 size = Vector2(21, 23)
 
 [node name="Cartao" type="Node2D" unique_id=297855989]
-position = Vector2(75, 306)
+position = Vector2(0, 0)
+
+z_index = 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2062246911]
 script = ExtResource("1_olowh")
 
+collision_layer = 0
+
+collision_mask = 0
+
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1406051309]
-position = Vector2(9, -6)
-scale = Vector2(0.6956523, 0.6956521)
-texture = ExtResource("1_ks231")
+position = Vector2(7.999998, -4.9999857)
+scale = Vector2(0.34782615, 0.34782606)
+texture = ExtResource("2_iy5eo")
 region_enabled = true
 region_rect = Rect2(152, 665, 46, 56)
 
@@ -68,7 +94,7 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=449191004]
 libraries/ = SubResource("AnimationLibrary_vpwsh")
-autoplay = &"movendo"
+autoplay = &""
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=831577002]
 collision_layer = 4

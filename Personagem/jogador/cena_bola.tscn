@@ -1,23 +1,74 @@
 [gd_scene format=3 uid="uid://cxghpgoyxl6f8"]
 
 [ext_resource type="Script" uid="uid://bcx25ljmvbjn2" path="res://Personagem/jogador/script_bola.gd" id="1_54ixj"]
-[ext_resource type="Texture2D" uid="uid://bglnuovh8jvvb" path="res://Personagem/jogador/sprite/Bola.png" id="1_a57ln"]
+[ext_resource type="Texture2D" uid="uid://bx1bl0wmobds5" path="res://Personagem/jogador/sprite/Sprite_Sheet_de_Bola.png" id="2_tfx4d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a57ln"]
-radius = 19.0
+radius = 14.0
+
+[sub_resource type="Animation" id="Animation_l04h2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(269, 378, 178, 173)]
+}
+
+[sub_resource type="Animation" id="Animation_5w67e"]
+resource_name = "avançando"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(46, 373, 176, 176), Rect2(269, 378, 178, 173), Rect2(483, 385, 220, 167), Rect2(739, 387, 248, 164), Rect2(1009, 365, 249, 207), Rect2(1279, 349, 360, 228)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkt7l"]
+_data = {
+&"RESET": SubResource("Animation_l04h2"),
+&"avançando": SubResource("Animation_5w67e")
+}
 
 [node name="Bola" type="Node2D" unique_id=1346768559]
-position = Vector2(554, 333)
+position = Vector2(0, 0)
+
+z_index = 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1225812022]
 script = ExtResource("1_54ixj")
 
+collision_layer = 0
+
+collision_mask = 5
+
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1767896318]
-position = Vector2(0, 3)
-scale = Vector2(0.074218705, 0.074218705)
-texture = ExtResource("1_a57ln")
+position = Vector2(9.536743e-07, 2.000001)
+scale = Vector2(0.18483658, 0.18483658)
+texture = ExtResource("2_tfx4d")
+region_enabled = true
+region_rect = Rect2(269, 378, 178, 173)
+region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=554890837]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_a57ln")
-disabled = true
+disabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=367479143]
+libraries/ = SubResource("AnimationLibrary_hkt7l")

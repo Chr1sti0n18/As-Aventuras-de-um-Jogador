@@ -11,21 +11,22 @@ config_version=5
 [application]
 
 config/name="As aventura de um jogador"
-run/main_scene="uid://b7tvjc3w8f4rp"
+run/main_scene="res://Cenario/telas/inicio.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
-config/icon="res://Sprites/icon.svg"
+config/icon="res://Personagem/jogador/sprite/icon.svg"
 
 [autoload]
 
-Global="*uid://2ysev5cryq4c"
-
-[debug]
-
-settings/stdout/print_fps=true
+Global="*res://Cenario/global.gd"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=2
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -64,6 +65,14 @@ carrinho={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Cenario"
+2d_physics/layer_2="Jogador"
+2d_physics/layer_3="Inimigos"
+2d_physics/layer_4="VAR"
+2d_physics/layer_5="BarreiraArea"
 
 [physics]
 

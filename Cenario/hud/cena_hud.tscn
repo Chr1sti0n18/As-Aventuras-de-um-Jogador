@@ -1,18 +1,34 @@
 [gd_scene format=3 uid="uid://cx4kdoraxx42g"]
 
 [ext_resource type="Script" uid="uid://bcfto861pdi0a" path="res://Cenario/hud/script_HUD.gd" id="1_v2j14"]
-[ext_resource type="Texture2D" uid="uid://bruw8548b0iv7" path="res://Cenario/hud/vida.png" id="2_bp6f7"]
+[ext_resource type="Texture2D" uid="uid://bar8as44xeub6" path="res://Cenario/hud/EstrelaVida.png" id="2_kfrgv"]
 
 [node name="HUD" type="Node2D" unique_id=1480817942]
 script = ExtResource("1_v2j14")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168764325]
-texture = ExtResource("2_bp6f7")
+position = Vector2(22.5, 22.125008)
+scale = Vector2(0.13636364, 0.13576557)
+texture = ExtResource("2_kfrgv")
 
 [node name="Label" type="Label" parent="." unique_id=1053655117]
-offset_left = 43.0
-offset_top = -22.0
-offset_right = 83.0
-offset_bottom = 1.0
+offset_left = 96.5
+offset_top = -4.8749924
+offset_right = 143.5
+offset_bottom = 40.125008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "X 4"
+
+[node name="Invencibilidade" type="Label" parent="."]
+visible = false
+offset_left = 0.0
+offset_top = 74.0
+offset_right = 240.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(1, 0.88, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.1, 0.05, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 19
+text = "INVENCÍVEL"

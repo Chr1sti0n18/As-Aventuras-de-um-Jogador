@@ -1,56 +1,135 @@
 [gd_scene format=3 uid="uid://b7tvjc3w8f4rp"]
 
-[ext_resource type="Texture2D" uid="uid://bq7hhd1owfrfv" path="res://Cenario/sprite/cenário.jpg" id="1_7hyak"]
-[ext_resource type="PackedScene" uid="uid://dko04rw3aw0qo" path="res://Personagem/jogador/cena_jogador.tscn" id="2_5fdea"]
-[ext_resource type="PackedScene" uid="uid://bf1en1f5dx4v5" path="res://Cenario/props/cena_nuvem.tscn" id="3_37tdn"]
-[ext_resource type="PackedScene" uid="uid://ba3i6ir4tmqf1" path="res://Personagem/inimigo_goleiro/cena_goleiro.tscn" id="4_2r50s"]
-[ext_resource type="PackedScene" uid="uid://cx4kdoraxx42g" path="res://Cenario/hud/cena_hud.tscn" id="4_7hyak"]
+[ext_resource type="Texture2D" uid="uid://bn011b44ccqnd" path="res://Cenario/sprite/01_inicio.png" id="bg0"]
+[ext_resource type="Texture2D" uid="uid://caftgpcnl2yl3" path="res://Cenario/sprite/02_cidade.png" id="bg1"]
+[ext_resource type="Texture2D" uid="uid://j8wrq5xiiu7m" path="res://Cenario/sprite/03_estadio.png" id="bg2"]
+[ext_resource type="Texture2D" uid="uid://c415si8slv44f" path="res://Cenario/sprite/cenario_completo.png" id="bg_estadio"]
+[ext_resource type="Texture2D" path="res://Cenario/sprite/emenda_01_02.png" id="emenda_01_02"]
+[ext_resource type="Script" uid="uid://bcujvw5p5prvq" path="res://Cenario/fase.gd" id="fase_script"]
+[ext_resource type="PackedScene" uid="uid://ba3i6ir4tmqf1" path="res://Personagem/inimigo_goleiro/cena_goleiro.tscn" id="goleiro"]
+[ext_resource type="PackedScene" uid="uid://cx4kdoraxx42g" path="res://Cenario/hud/cena_hud.tscn" id="hud"]
+[ext_resource type="PackedScene" uid="uid://dko04rw3aw0qo" path="res://Personagem/jogador/cena_jogador.tscn" id="jogador"]
+[ext_resource type="PackedScene" uid="uid://4acqj7530toc" path="res://Personagem/inimigo_juiz/cena_inimigo1.tscn" id="juiz"]
+[ext_resource type="PackedScene" path="res://Cenario/taca.tscn" id="taca"]
+[ext_resource type="PackedScene" uid="uid://drjvb5xwdv8u6" path="res://Cenario/transicao_estadio.tscn" id="transicao"]
+[ext_resource type="PackedScene" uid="uid://c7vr1dbtgq1j" path="res://Personagem/inimigo_var/cena_var.tscn" id="var"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_64uw6"]
-size = Vector2(43, 655)
+[sub_resource type="RectangleShape2D" id="chao"]
+size = Vector2(13072, 100)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r67k"]
-size = Vector2(285, 138)
+[sub_resource type="RectangleShape2D" id="parede"]
+size = Vector2(40, 1400)
 
-[node name="Fase" type="Node2D" unique_id=934340607]
-position = Vector2(0, 6)
+[node name="Fase" type="Node2D" unique_id=1006938737]
+script = ExtResource("fase_script")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=519029942]
-position = Vector2(583, 608)
+[node name="Cenarios" type="Node2D" parent="." unique_id=1432101483]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=855965258]
-position = Vector2(936, -202.99998)
-scale = Vector2(1.0388749, 1.3977274)
-texture = ExtResource("1_7hyak")
+[node name="Trecho01" type="Sprite2D" parent="Cenarios" unique_id=278765287]
+position = Vector2(0, -4.999999)
+scale = Vector2(1.0605469, 1.0615835)
+texture = ExtResource("bg0")
+centered = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1116216062]
-polygon = PackedVector2Array(-587, -1, 1037, -1, 1037, -96, 1056, -97, 1055, -148, 1095, -148, 1095, -200, 1136, -200, 1136, -148, 1176, -147, 1174, -103, 1190, -101, 1190, -50, 1527, -49, 1564, -3, 2457, 1, 2457, 45, -585, 41)
+[node name="Trecho02" type="Sprite2D" parent="Cenarios" unique_id=743076470]
+position = Vector2(2172.0002, -0.99999994)
+scale = Vector2(1.0605469, 1.0615835)
+texture = ExtResource("bg1")
+centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1229518243]
-position = Vector2(-603, -286.5)
-shape = SubResource("RectangleShape2D_64uw6")
+[node name="Trecho03" type="Sprite2D" parent="Cenarios" unique_id=1096724700]
+position = Vector2(4344.0005, 2)
+scale = Vector2(1.0605469, 1.0615835)
+texture = ExtResource("bg2")
+centered = false
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=24231904]
-position = Vector2(2477, -282)
-shape = SubResource("RectangleShape2D_64uw6")
+[node name="EstadioCompleto" type="Sprite2D" parent="Cenarios" unique_id=1389344704]
+position = Vector2(6516, 0)
+texture = ExtResource("bg_estadio")
+centered = false
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=730386540]
-position = Vector2(1927.5, -72)
-shape = SubResource("RectangleShape2D_3r67k")
-one_way_collision = true
+[node name="Emendas" type="Node2D" parent="." unique_id=1500200301]
 
-[node name="Jogador" parent="." unique_id=297150345 instance=ExtResource("2_5fdea")]
-position = Vector2(138, 553)
+[node name="Emenda01_02" type="Sprite2D" parent="Emendas" unique_id=1500200302]
+position = Vector2(1652, 0)
+texture = ExtResource("emenda_01_02")
+centered = false
 
-[node name="Goleiro" parent="." unique_id=879218546 instance=ExtResource("4_2r50s")]
-position = Vector2(846, 547)
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=849567252]
+collision_mask = 0
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=429357353]
-layer = 1
+[node name="Chao" type="CollisionShape2D" parent="StaticBody2D" unique_id=1463410312]
+position = Vector2(6516, 670)
+shape = SubResource("chao")
 
-[node name="Nuvem" parent="ParallaxBackground" unique_id=365300541 instance=ExtResource("3_37tdn")]
-position = Vector2(0, 6)
+[node name="LimiteEsquerdo" type="CollisionShape2D" parent="StaticBody2D" unique_id=53493771]
+position = Vector2(-20, 0)
+shape = SubResource("parede")
 
-[node name="HUD" parent="ParallaxBackground" unique_id=1480817942 instance=ExtResource("4_7hyak")]
-position = Vector2(41, 41)
-script = null
+[node name="LimiteDireito" type="CollisionShape2D" parent="StaticBody2D" unique_id=425412963]
+position = Vector2(13052, 0)
+shape = SubResource("parede")
+
+[node name="Jogador" parent="." unique_id=2131434451 instance=ExtResource("jogador")]
+position = Vector2(170, 594)
+
+[node name="Inimigos" type="Node2D" parent="." unique_id=985180400]
+
+[node name="Juiz01" parent="Inimigos" unique_id=652803296 instance=ExtResource("juiz")]
+position = Vector2(1050, 557)
+
+[node name="Goleiro02" parent="Inimigos" unique_id=982173112 instance=ExtResource("goleiro")]
+position = Vector2(1900, 559)
+
+[node name="Juiz03" parent="Inimigos" unique_id=2010155442 instance=ExtResource("juiz")]
+position = Vector2(2850, 557)
+
+[node name="Var04" parent="Inimigos" unique_id=1874325555 instance=ExtResource("var")]
+position = Vector2(3800, 535)
+
+[node name="Juiz05" parent="Inimigos" unique_id=165532197 instance=ExtResource("juiz")]
+position = Vector2(4900, 557)
+
+[node name="Goleiro06" parent="Inimigos" unique_id=1324493869 instance=ExtResource("goleiro")]
+position = Vector2(5850, 559)
+
+[node name="Goleiro07" parent="Inimigos" unique_id=850721203 instance=ExtResource("goleiro")]
+position = Vector2(7050, 559)
+
+[node name="Juiz08" parent="Inimigos" unique_id=67234989 instance=ExtResource("juiz")]
+position = Vector2(7900, 557)
+
+[node name="Var09" parent="Inimigos" unique_id=1965938228 instance=ExtResource("var")]
+position = Vector2(9000, 535)
+
+[node name="Goleiro10" parent="Inimigos" unique_id=735629038 instance=ExtResource("goleiro")]
+position = Vector2(9900, 559)
+
+[node name="Juiz11" parent="Inimigos" unique_id=255274751 instance=ExtResource("juiz")]
+position = Vector2(11150, 557)
+
+[node name="Var12" parent="Inimigos" unique_id=1045828495 instance=ExtResource("var")]
+position = Vector2(12000, 535)
+
+[node name="Goleiro13" parent="Inimigos" unique_id=1078398600 instance=ExtResource("goleiro")]
+position = Vector2(12800, 559)
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=212101337]
+layer = 10
+
+[node name="HUD" parent="Interface" unique_id=1862667606 instance=ExtResource("hud")]
+position = Vector2(40, 35)
+
+[node name="TransicaoEstadio" parent="." unique_id=218913407 instance=ExtResource("transicao")]
+
+[node name="TransicaoViaduto" parent="." unique_id=1213826965 instance=ExtResource("transicao")]
+position = Vector2(4344, 0)
+fronteira_x = 4344.0
+tipo_passagem = 1
+titulo_passagem = "PASSAGEM SOB O VIADUTO"
+mensagem_entrada = "ACESSO AO ESTÁDIO"
+mensagem_saida = "VOLTANDO À CIDADE"
+texto_placa_entrada = "ESTÁDIO →"
+texto_placa_saida = "← CIDADE"
+
+[node name="Taca" parent="." unique_id=1088647512 instance=ExtResource("taca")]
